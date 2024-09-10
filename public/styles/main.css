@@ -1,0 +1,25 @@
+body {
+    background-color: #1e1f22;
+    color: #bcbec4;
+    font-size: 50px;
+}
+
+.flex-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.variable-declaration {
+    color: #cf8e6d;
+}
+
+.integer {
+    color: #2aacb8;
+}
+
+.string {
+    color: #6aab73;
+}
+

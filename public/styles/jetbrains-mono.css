@@ -1,0 +1,37 @@
+
+.jetbrains-mono-light {
+                     font-family: "JetBrains Mono", monospace;
+                     font-optical-sizing: auto;
+                     font-weight: 300;
+                     font-style: normal;
+                 }
+
+
+.jetbrains-mono-regular {
+                     font-family: "JetBrains Mono", monospace;
+                     font-optical-sizing: auto;
+                     font-weight: 400;
+                     font-style: normal;
+                 }
+
+.jetbrains-mono-medium {
+                     font-family: "JetBrains Mono", monospace;
+                     font-optical-sizing: auto;
+                     font-weight: 500;
+                     font-style: normal;
+                 }
+
+.jetbrains-mono-semibold {
+                     font-family: "JetBrains Mono", monospace;
+                     font-optical-sizing: auto;
+                     font-weight: 600;
+                     font-style: normal;
+                 }
+
+
+.jetbrains-mono-bold {
+                         font-family: "JetBrains Mono", monospace;
+                         font-optical-sizing: auto;
+                         font-weight: 700;
+                         font-style: normal;
+                     }
