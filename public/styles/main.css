@@ -4,9 +4,14 @@ body {
     font-size: 50px;
 }
 
+p {
+    line-height: 55px;
+}
+
 .flex-container {
     display: flex;
-    height: 100vh;
+    margin: 0;
+    height: 90vh;
     justify-content: center;
     align-items: center;
 }
@@ -21,5 +26,23 @@ body {
 
 .string {
     color: #6aab73;
+}
+
+.function {
+ color: #56a8f5;
+}
+
+.options-container {
+    margin: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+}
+
+#login {
+    font-size: 15px;
+    text-decoration: none;
+    color: #bcbec4;
 }
 
