@@ -1,11 +1,34 @@
 import express from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
+import pg from "pg";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Setting up connection with database
+const db = new pg.Client({
+    user: "postgres",
+    password: "gopoop23",
+    host: "localhost",
+    port: 5432,
+    database: "js-homepage",
+});
+
+// Connecting to database
+db.connect();
+
+// Global variables
 let currentUser = "";
+let submittedUser = "";
+let submittedPassword = "";
+
+// Functions
+
+async function checkPassword() {
+    const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [submittedUser, submittedPassword]);
+    return result.rows;
+}
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,8 +50,10 @@ app.get("/login", (req, res) => {
 
 // Intercepts POST requests for user login,
 // Request body: { username: "", password: "" }
-app.post("/login", (req, res) => {
-    console.log(req.body);
+app.post("/login", async (req, res) => {
+    submittedUser = req.body.username;
+    submittedPassword = req.body.password;
+    console.log(await checkPassword());
 });
 
 // Server start
