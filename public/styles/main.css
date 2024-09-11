@@ -40,7 +40,7 @@ p {
     padding: 10px 0px 10px 0px;
 }
 
-#login {
+.interaction {
     font-size: 15px;
     text-decoration: none;
     color: #bcbec4;
