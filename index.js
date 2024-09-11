@@ -53,7 +53,12 @@ app.get("/login", (req, res) => {
 app.post("/login", async (req, res) => {
     submittedUser = req.body.username;
     submittedPassword = req.body.password;
-    console.log(await checkPassword());
+
+    const result = await checkPassword(); // Returns an array containing the matching users
+    currentUser = result[0].username;
+    console.log(`currentUser: ${currentUser}`);
+    res.redirect('/');
+
 });
 
 // Server start
