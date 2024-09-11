@@ -55,8 +55,12 @@ app.post("/login", async (req, res) => {
     submittedPassword = req.body.password;
 
     const result = await checkPassword(); // Returns an array containing the matching users
+
     currentUser = result[0].username;
+
     console.log(`currentUser: ${currentUser}`);
+    console.log(`Type: ${typeof(currentUser)}`);
+
     res.redirect('/');
 
 });
