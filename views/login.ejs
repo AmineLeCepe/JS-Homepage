@@ -6,10 +6,24 @@
 </div>
 
 <div class="flex-container">
-    <p>
-        <span class="variable-declaration">let</span> username = <br>
-        <span class="variable-declaration">let</span> password = <br>
-    </p>
+    <form action="/login" method="post">
+        <div class="username-container">
+            <label for="username">
+                <span class="variable-declaration">let</span> username =
+            </label>
+            <input name="username" id="username" class="jetbrains-mono-regular">
+        </div>
+        <div class="password-container">
+            <label for="password">
+                <span class="variable-declaration">let</span> password =
+            </label>
+            <input name="password" id="password" class="jetbrains-mono-regular">
+        </div>
+        <div class="submit-container">
+            <button class="jetbrains-mono-regular"><span class="variable-declaration">function</span> <span class="function">signIn()</span></button>
+        </div>
+    </form>
+
 </div>
 
 <%- include("footer.ejs") %>

@@ -46,3 +46,22 @@ p {
     color: #bcbec4;
 }
 
+label {
+    float: left;
+    margin-right: 20px;
+}
+
+input {
+    background: transparent;
+    color: #6aab73;
+    border: none;
+    font-size: inherit;
+}
+
+button {
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
