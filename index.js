@@ -18,17 +18,7 @@ const db = new pg.Client({
 // Connecting to database
 db.connect();
 
-// Global variables
-let currentUser = "";
-let submittedUser = "";
-let submittedPassword = "";
-
 // Functions
-
-async function checkPassword() {
-    const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [submittedUser, submittedPassword]);
-    return result.rows;
-}
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,9 +27,7 @@ app.use(express.static('public'));
 
 // Loads the homepage
 app.get("/", (req, res) => {
-    res.render("index.ejs", {
-        user: currentUser,
-    });
+    res.render("index.ejs");
 });
 
 // Loads the login page
@@ -51,17 +39,34 @@ app.get("/login", (req, res) => {
 // Intercepts POST requests for user login,
 // Request body: { username: "", password: "" }
 app.post("/login", async (req, res) => {
-    submittedUser = req.body.username;
-    submittedPassword = req.body.password;
+    const submittedUser = req.body.username;
+    const submittedPassword = req.body.password;
 
-    const result = await checkPassword(); // Returns an array containing the matching users
-
-    currentUser = result[0].username;
-
-    console.log(`currentUser: ${currentUser}`);
-    console.log(`Type: ${typeof(currentUser)}`);
-
-    res.redirect('/');
+    try {
+        const result = await db.query(
+            "SELECT * FROM users WHERE username = $1",
+            [submittedUser]
+        );
+        if (result.rows.length > 0) {
+            if (result.rows[0].password == submittedPassword) {
+                res.render("index.ejs", {
+                    currentUser: result.rows[0].username,
+                });
+            } else {
+                res.render("login.ejs", {
+                    errorMessage: "Login failed: passwords do not match"
+                });
+                console.log("Login failed: passwords do not match");
+            }
+        } else {
+            res.render("login.ejs", {
+                errorMessage: "Login failed: user not found"
+            });
+            console.log("Login failed: user not found");
+        }
+    } catch (err) {
+        console.error(err);
+    };
 
 });
 

@@ -1,12 +1,12 @@
 <%- include('header.ejs') %>
 
-<% if (locals.user == "") { %>
+<% if (!locals.currentUser) { %>
 <div class="options-container jetbrains-mono-lighter">
     <a href="login" class="interaction"><span class="variable-declaration">function</span> <span class="function">login()</span></a>
 </div>
 <% } else { %>
 <div class="options-container jetbrains-mono-lighter">
-    <a href="" class="interaction"><span class="variable-declaration">let</span> currentUser = <span class="string">"<%= locals.user %>"</span></a>
+    <a href="" class="interaction"><span class="variable-declaration">let</span> currentUser = <span class="string">"<%= locals.currentUser %>"</span></a>
 </div>
 <% } %>
 
