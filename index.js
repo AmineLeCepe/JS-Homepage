@@ -2,17 +2,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import pg from "pg";
+import env from "dotenv";
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+env.config();
+
 // Setting up connection with database
 const db = new pg.Client({
-    user: "postgres",
-    password: "gopoop23",
-    host: "localhost",
-    port: 5432,
-    database: "js-homepage",
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    database: process.env.PG_DATABASE,
 });
 
 // Connecting to database
