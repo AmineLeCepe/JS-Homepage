@@ -10,6 +10,7 @@ p {
 
 .flex-container {
     display: flex;
+    flex-direction: column;
     margin: 0;
     height: 90vh;
     justify-content: center;

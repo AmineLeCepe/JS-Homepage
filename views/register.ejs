@@ -6,7 +6,7 @@
 </div>
 
 <div class="flex-container">
-    <form action="/login" method="post">
+    <form action="/register" method="post">
         <div class="username-container">
             <label for="username">
                 <span class="variable-declaration">let</span> username =
@@ -19,13 +19,19 @@
             </label>
             <input name="password" id="password" class="jetbrains-mono-regular" type="password">
         </div>
+        <div class="password-confirmation-container">
+            <label for="password">
+                <span class="variable-declaration">let</span> passwordConfirm =
+            </label>
+            <input name="passwordConfirm" id="passwordConfirm" class="jetbrains-mono-regular" type="password">
+        </div>
         <div class="submit-container">
             <button class="jetbrains-mono-regular"><span class="variable-declaration">function</span> <span class="function">signIn()</span></button>
         </div>
     </form>
-    <div class="register-container">
-        <a class="interaction" href="/register">
-            Not a user? <span class="function">register()</span>
+    <div class="login-container">
+        <a class="interaction" href="/login">
+            Already a user? <span class="function">login()</span>
         </a>
     </div>
 </div>
